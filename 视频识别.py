@@ -202,15 +202,17 @@ class CoreUI(QMainWindow):
         # if self.filenamelabel.text()=="尚未选择文件":
         #     print('llllllll')
         #     return
-        QMessageBox.information(self,"标题","消息正文",QMessageBox.Yes|QMessageBox.No,QMessageBox.Yes)
-        # recoginition(self.filenamelabel.text())
+        QMessageBox.information(self,"标题","识别需要很久，您确定吗？",QMessageBox.Yes|QMessageBox.No,QMessageBox.Yes)
+        recoginition(self.filenamelabel.text())
 
     def expressionRecognition(self,p):
         print('表情识别',p)
-        self.isexpressionaceRecognition = p
+        global isexpressionaceRecognition
+        isexpressionaceRecognition = p
     def faceRecognition(self,p):
         print('人脸识别',p)
-        self.isfaceaceRecognition = p
+        global isfaceaceRecognition
+        isfaceaceRecognition = p
     def choosefile(self):
         file_name, file_type = QtWidgets.QFileDialog.getOpenFileName(caption="选取图片", directory="../data/test",
                                                  filter="All Files (*);;Text Files (*.txt)")
